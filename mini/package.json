@@ -1,0 +1,9 @@
+{
+  "name": "mini",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "tdesign-miniprogram": "^0.23.0"
+  }
+}

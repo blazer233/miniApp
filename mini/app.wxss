@@ -1,0 +1,47 @@
+/**app.wxss**/
+
+
+/* 页面布局样式 */
+.page-wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: content-box;
+    background: #f2f2f2;
+}
+
+.page-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+
+/* 通用小模块/组件样式 */
+.m-bottom-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 2rpx solid #e5e5e6;
+    transform: scaleY(0.5);
+}
+
+.m-top-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-top: 2rpx solid #e5e5e6;
+    transform: scaleY(0.5);
+}
+
+/* 原子类型样式 */
+.left-30 {
+    left: 30rpx;
+}
+
+.right-30 {
+    right: 30rpx;
+}

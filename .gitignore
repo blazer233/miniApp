@@ -1,0 +1,24 @@
+/node_modules
+/cloudfunctions/wishes-520/node_modules
+cloudfunctions/wishes-520/node_modules/
+# Windows
+[Dd]esktop.ini
+Thumbs.db
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+
+# Node.js
+yarn.lock/
+node_modules/
+miniprogram_npm/
+
+# IDE
+.idea
+project.private.config.json
+package-lock.json

@@ -1,0 +1,42 @@
+<view class="address-detail">
+  <view class="divider-line" />
+  <view class="form-address">
+    <form class="form-content">
+      <t-cell-group>
+        <t-cell t-class-left="t-cell-left" t-class-title="t-cell-title" title="姓名">
+          <t-input class="t-input" slot="note" t-class="field-text" data-item="name" maxlength="20" type="text" value="{{locationState.name}}" bind:change="onInputValue" />
+        </t-cell>
+        <t-cell t-class-left="t-cell-left" t-class-title="t-cell-title" title="联系方式">
+          <t-input slot="note" class="t-input" t-class="field-text" type="number" value="{{locationState.phone}}" maxlength="11" placeholder="联系您的手机号" bind:change="onInputValue" data-item="phone" />
+        </t-cell>
+        <t-cell t-class-left="t-cell-left" t-class-title="t-cell-title" t-class-note="t-textarea-cell-note" title="事件描述">
+          <t-textarea slot="note" class="t-input" type="text" value="{{locationState.event}}" placeholder="完成xxx事件，如何解决" autosize bind:change="onInputValue" data-item="event" />
+        </t-cell>
+        <view class="divider-line" />
+        <t-cell t-class-left="t-cell-left" t-class-note="t-cell-note" t-class-title="t-cell-title" title="标签">
+          <view class="t-input address-flex-box" slot="note">
+            <t-button wx:for="{{labels}}" wx:for-item="label" wx:key="index" t-class="label-list {{locationState.labelIndex === index ? 'active-btn':''}}" bindtap="onPickLabels" data-item="{{index}}">
+              {{label}}
+            </t-button>
+            <t-button t-class="label-list" bindtap="addLabels">
+              <t-icon name="add" size="40rpx" color="#bbb" />
+            </t-button>
+          </view>
+        </t-cell>
+        <view class="divider-line" />
+        <t-cell t-class-left="t-cell-left" title="是否需要后续跟进">
+          <t-switch value="{{locationState.isDefault}}" slot="note" colors="{{['#0ABF5B', '#c6c6c6']}}" bind:change="onCheckDefaultAddress" />
+        </t-cell>
+      </t-cell-group>
+      <view class="submit">
+        <t-button t-class="btn-submit-address theme-wrapper-class" bind:tap="formSubmit">
+          保存
+        </t-button>
+      </view>
+    </form>
+  </view>
+</view>
+<t-dialog visible="{{visible}}" t-class-confirm="dialog__button-confirm" title="填写标签名称" confirm-btn="确定" cancel-btn="取消" bind:confirm="confirmHandle" bind:cancel="cancelHandle">
+  <t-input slot="content" model:value="{{locationState.labelValue}}" placeholder="请输入标签名称" borderless bind:change="onInputValue" data-item="labelValue" />
+</t-dialog>
+<t-toast id="t-toast" />

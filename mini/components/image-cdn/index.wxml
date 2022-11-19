@@ -1,0 +1,1 @@
+<image class="weapp-image {{cls}}" src="{{baseurl}}{{icon}}" />

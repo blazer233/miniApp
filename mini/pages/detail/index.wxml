@@ -1,0 +1,47 @@
+<view class="goods-detail-page">
+  <view class="goods-head">
+    <t-swiper wx:if="{{details.images.length > 0}}" t-class="t-swiper" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" navigation="{{navigation}}">
+      <t-swiper-item wx:for="{{details.images}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <t-image src="{{item}}" t-class="swipe-img" />
+      </t-swiper-item>
+    </t-swiper>
+    <view class="goods-info">
+      <view wx:if="{{details.activityList && details.activityList.length > 0}}" class="goods-activity" bindtap="showPromotionPopup">
+        <view class="tags-container">
+          <view wx:for="{{details.activityList}}" wx:key="index" wx:if="{{index<4}}">
+            <view class="goods-activity-tag">{{item}}</view>
+          </view>
+        </view>
+        <view class="iconn">
+          <image class="weapp-image" src="../../image/{{task==1 ? 'icon-051.png' : task==-1 ? 'icon-04.png': 'icon-05.png'}}" />
+        </view>
+      </view>
+      <view class="goods-title">
+        <rich-text nodes="{{details.title}}" />
+        <view class="goods-tag">
+          <t-button open-type="share" t-class="shareBtn">
+            <view class="btn-icon">
+              <t-icon name="share" size="32rpx" />
+              <view class="share-text">分享</view>
+            </view>
+          </t-button>
+        </view>
+      </view>
+      <view class="goods-intro">{{intro}}</view>
+    </view>
+  </view>
+  <view class="desc-content">
+    <view class="desc-content__title" wx:if="{{details.desc.length > 0}}">
+      <span class="desc-content__title--text">详情介绍</span>
+    </view>
+    <view wx:if="{{details.desc.length > 0}}" wx:for="{{details.desc}}" wx:key="index">
+      <t-image t-class="desc-content__img" src="{{item}}" mode="widthFix" />
+    </view>
+  </view>
+  <view class="external-class" wx:if="{{task!=-1}}">
+    <t-button theme="primary" block shape='rectangle' bindtap='bindnav'>
+      {{task ? '立即领取' : '参与打卡'}}
+    </t-button>
+  </view>
+</view>
+<t-toast id="t-toast" />

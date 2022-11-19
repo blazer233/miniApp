@@ -1,0 +1,146 @@
+/* 通用列表样式 */
+.m-list {
+  position: relative;
+  background: #ffffff;
+}
+.-card {
+  margin: 30rpx;
+  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 14%);
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+.list-item {
+  position: relative;
+  padding: 30rpx;
+}
+.item-title {
+  word-wrap: break-word;
+  word-break: break-all;
+  font-weight: bold;
+  font-size: 36rpx;
+  margin-bottom: 12rpx;
+  padding-right: 60rpx;
+}
+.item-status {
+  display: flex;
+  align-items: center;
+}
+
+.item-progress {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.item-progress-text {
+  font-size: 28rpx;
+}
+.item-progress-icon {
+  position: absolute;
+  right: 10rpx;
+  top: 20rpx;
+  width: 72rpx;
+  height: 72rpx;
+  opacity: 0.3;
+}
+.item-progress-icon.-unclaimed {
+  width: 90rpx;
+  height: 70rpx;
+}
+.item-progress.-unclaimed .item-progress-text {
+  color: #ed4343;
+}
+.item-progress.-ing .item-progress-text {
+  color: #28ca2a;
+}
+.item-progress.-end .item-progress-text{
+  color: #999999;
+}
+.item-time {
+  margin-left: auto;
+  font-size: 26rpx;
+  color: #999999;
+}
+.item-text {
+  margin-top: 12rpx;
+  color: #4b5563;
+}
+
+
+
+/* 通用tab样式 */
+.m-tab {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 94rpx;
+  background: #ffffff;
+}
+.m-tab-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+}
+.m-tab-item.-active {
+  color: #265CF0;
+  font-weight: bold;
+}
+.m-tab-slider {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48rpx;
+  height: 4rpx;
+  background: #265CF0;
+  border-radius: 2rpx;
+  z-index: 1;
+  transform: translateX(-50%);
+  transition: all 0.1s ease;
+}
+
+/* 加载中模块 */
+.m-loading {
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.m-loading-icon {
+  width: 60rpx;
+  height: 60rpx;
+  animation: rotate0To360 1s infinite linear;
+  transform-origin: center center;
+}
+@keyframes rotate0To360 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* 空状态模块 */
+.m-empty {
+  position: relative;
+  width: 100%;
+  height: 400rpx;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.empty-icon {
+  width: 200rpx;
+  height: 200rpx;
+}
+.empty-text {
+  font-size: 28rpx;
+  color: #999999;
+  margin-top: 16rpx;
+}

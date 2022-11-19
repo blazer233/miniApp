@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "社工广场",
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button"
+  }
+}

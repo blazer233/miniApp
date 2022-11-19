@@ -1,0 +1,33 @@
+<view class="page-wrap">
+  <view class="page-container">
+    <view class="m-tab">
+      <view bindtap="bindTabClick" class="m-tab-item {{active == index ? '-active' : ''}}" wx:for="{{tab}}" data-index="{{index}}">{{item}}</view>
+      <view class="m-tab-slider" style="left: {{active === 0 ? '25%' : '75%'}};"></view>
+      <view class="m-bottom-line"></view>
+    </view>
+    <!-- 列表 -->
+    <view class="m-list -card">
+      <view wx:if="{{msgList.loading}}" class="m-loading">
+        <view class="m-loading-icon"><image class="weapp-image" src="../../image/loading.png" /></view>
+      </view>
+      <view wx:elif="{{msgList.empty}}" class="m-empty">
+        <view class="empty-icon"><image class="weapp-image" src="../../image/empty-workOrder.png" /></view>
+        <view class="empty-text">暂无待领取任务</view>
+      </view>
+      <block wx:else>
+        <view class="list-item" wx:for="{{msgList.data}}" wx:key="index" data-item="{{item}}" bindtap="bindToDetail">
+          <view class="item-title">{{item.title}}</view>
+          <view class="item-progress-icon {{item.status == 0 ? '-unclaimed' : ''}}"><image class="weapp-image" src="../../image/{{item.status == 0 ? 'icon-06.png' : ( item.status == 1 ? 'icon-05.png' : 'icon-04.png')}}" /></view>
+          <view class="item-status">
+            <view class="item-progress {{item.status == 0 ? '-unclaimed' : ( item.status == 1 ? '-ing' : '-end')}} ">
+              <view class="item-progress-text">{{item.progressText}}</view>
+            </view>
+            <view class="item-time">开始时间：{{item.date}}</view>
+          </view>
+          <view class="item-text">{{item.desc}}</view>
+          <view wx:if="{{index !== msgList.length - 1}}" class="m-bottom-line left-30 right-30"></view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
